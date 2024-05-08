@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  const client = env('DATABASE_CLIENT', 'postgres');
 
   const connections = {
     mysql: {
@@ -49,12 +49,12 @@ module.exports = ({ env }) => {
     },
     postgres: {
       connection: {
-        connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
+        connectionString: env('postgres://schedule_g8aq_user:dSRJUdyTu7lQdpxLLlUZnbSQIDxALm9u@dpg-cotomr21hbls73achntg-a.frankfurt-postgres.render.com/schedule_g8aq'),
+        host: env('DATABASE_HOST', 'dpg-cotomr21hbls73achntg-a'),
         port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
+        database: env('DATABASE_NAME', 'schedule_g8aq'),
+        user: env('DATABASE_USERNAME', 'schedule_g8aq_user'),
+        password: env('DATABASE_PASSWORD', 'dSRJUdyTu7lQdpxLLlUZnbSQIDxALm9u'),
         ssl: env.bool('DATABASE_SSL', false) && {
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),
